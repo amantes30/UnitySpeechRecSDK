@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637792041942830125
-    m_Hash: 1809268508
+      ticks: 637793891640209386
+    m_Hash: 1961602055
   m_LockFileStatus:
     m_FilePath: D:/SPEECH/My project/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637792041942937128
-    m_Hash: 2045496968
+      ticks: 637793891640209386
+    m_Hash: 1551882689
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:

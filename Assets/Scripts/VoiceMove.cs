@@ -8,21 +8,15 @@ using System.Linq;
 
 public class VoiceMove : MonoBehaviour
 {
-    
-    public Animator anim;
-    public Canvas HelpMenu;
-    public Transform Human;
 
+    [SerializeField] private Animator AnimationController;
+    [SerializeField] private Canvas HelpMenu;
+    [SerializeField] private Transform HumanModel;
     [SerializeField] Transform Environment;
-    public List<Transform> HoldableObjs;
-
-    private KeywordRecognizer playermovement_keywords;
-    Vector3 speed, direction;
-
-
-
-
-    //dictionary to save Keywords
+    public List<Transform> HoldableObjs; // list to get every object that player can hold in the scene
+    private KeywordRecognizer playermovement_keywords; //Keyword to be recognized
+    Vector3 speed; // for player movement
+    //dictionary to save Keywords with functions
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
    
@@ -47,17 +41,17 @@ public class VoiceMove : MonoBehaviour
         playermovement_keywords.Start();
 
       
-        anim = Human.GetComponent<Animator>();
+        AnimationController = HumanModel.GetComponent<Animator>();
 
 
 
         // Get's animation component attached on object
 
-        foreach (Transform i in Environment.GetComponentInChildren<Transform>())
+        foreach (Transform obj in Environment.GetComponentInChildren<Transform>())
         {
-            if (i.tag == "Pickable")
+            if (obj.tag == "Pickable")
             {
-                HoldableObjs.Add(i);
+                HoldableObjs.Add(obj);
             }
         }
 
@@ -66,26 +60,29 @@ public class VoiceMove : MonoBehaviour
     void Jump()
     {
         PlayAnim("Jumped");
-
+        HumanModel.GetComponent<Rigidbody>().AddForce(Vector3.up * 15f);
+        
     }
     void PlayAnim(string a)
     {
 
-        anim.SetBool("isRunning", false);
-        anim.SetBool("isWalking", false);
-        anim.SetBool("BackFlip", false);
-        anim.SetBool("Greet", false);
-        anim.SetBool("Jumped", false);
+        AnimationController.SetBool("isRunning", false);
+        AnimationController.SetBool("isWalking", false);
+        AnimationController.SetBool("BackFlip", false);
+        AnimationController.SetBool("Greet", false);
+        AnimationController.SetBool("Jumped", false);
 
 
-        anim.SetBool(a, true);
+        AnimationController.SetBool(a, true);
+        
     }
     void BeIdle()
     {
-        anim.SetBool("isRunning", false);
-        anim.SetBool("isWalking", false);
-        anim.SetBool("BackFlip", false);
-        anim.SetBool("Greet", false);
+        AnimationController.SetBool("isRunning", false);
+        AnimationController.SetBool("isWalking", false);
+        AnimationController.SetBool("BackFlip", false);
+        AnimationController.SetBool("Greet", false);
+        AnimationController.SetBool("Jumped", false);
         speed = Vector3.zero;
     }
     private void flip() => PlayAnim("BackFlip");
@@ -97,9 +94,9 @@ public class VoiceMove : MonoBehaviour
     }
     void Stopp() => BeIdle();
 
-    void TurnLeft() => Human.transform.Rotate(0, -90, 0);
+    void TurnLeft() => HumanModel.transform.Rotate(0, -90, 0);
 
-    void TurnRight() => Human.transform.Rotate(0, 90, 0);
+    void TurnRight() => HumanModel.transform.Rotate(0, 90, 0);
 
     void Walk()
     {
@@ -130,7 +127,7 @@ public class VoiceMove : MonoBehaviour
         {
             HelpMenu.gameObject.SetActive(false);
         }
-        Human.Translate(speed);
+        HumanModel.Translate(speed);
 
     }
 

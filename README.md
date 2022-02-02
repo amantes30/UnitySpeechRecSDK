@@ -7,6 +7,7 @@ Requirements for Speech recognition system SDK
 -	Windows machine (Have not been tested on Mac or Linux OS)
 -	4GB RAM (Recommended)
 -	Windows 10 SDK extension for Visual Studio
+
             - Open Visual studio Installer
             - Modify (If you already have installed visual studio), or
             - Install if you haven't already

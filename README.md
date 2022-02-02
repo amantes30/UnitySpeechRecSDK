@@ -9,4 +9,4 @@ Requirements for Speech recognition system SDK
 -	Windows 10 SDK extension for Visual Studio
 -	Working microphone on computer
 -	Allowing Unity projects to access microphone
-o	Edit -> Project Settings -> Player -> Publishing Settings -> Capabilities -> Check on Microphone
+      Edit -> Project Settings -> Player -> Publishing Settings -> Capabilities -> Check on Microphone

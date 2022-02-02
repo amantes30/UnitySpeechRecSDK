@@ -7,6 +7,10 @@ Requirements for Speech recognition system SDK
 -	Windows machine (Have not been tested on Mac or Linux OS)
 -	4GB RAM (Recommended)
 -	Windows 10 SDK extension for Visual Studio
+            - Open Visual studio Installer
+            - Modify (If you already have installed visual studio), or
+            - Install if you haven't already
+            - then search for windows 10 SDK or 11 SDK then install to you IDE            
 -	Working microphone on computer
 -	Allowing Unity projects to access microphone.
 

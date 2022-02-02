@@ -8,5 +8,6 @@ Requirements for Speech recognition system SDK
 -	4GB RAM (Recommended)
 -	Windows 10 SDK extension for Visual Studio
 -	Working microphone on computer
--	Allowing Unity projects to access microphone
-      Edit -> Project Settings -> Player -> Publishing Settings -> Capabilities -> Check on Microphone
+-	Allowing Unity projects to access microphone.
+
+            Edit -> Project Settings -> Player -> Publishing Settings -> Capabilities -> Check on Microphone

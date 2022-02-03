@@ -16,3 +16,20 @@ Requirements for Speech recognition system SDK
 -	Allowing Unity projects to access microphone.
 
             Edit -> Project Settings -> Player -> Publishing Settings -> Capabilities -> Check on Microphone
+
+# Build Settings
+Platform - PC, Mac, Linux Standalone
+
+Target Platform - Windows
+
+Compression Method - Default
+
+# Player Settings - > Other settings
+Configuration
+
+Scripting Backend - Mono
+
+API compatibility Level - .NET Standard 2.0
+
+Active Input Handling - Input Manager (Old)
+

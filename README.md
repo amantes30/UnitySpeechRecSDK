@@ -32,4 +32,6 @@ Configuration
             API compatibility Level - .NET Standard 2.0
 
             Active Input Handling - Input Manager (Old)
+# Common Error
+In some case the VoiceMove.cs script might be blank, this indicates the packages haven’t been loaded properly. The solution is go to the Project Window -> Right click -> select Reimport All. Unity will close and reopen.
 

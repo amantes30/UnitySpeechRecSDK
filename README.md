@@ -18,18 +18,18 @@ Requirements for Speech recognition system SDK
             Edit -> Project Settings -> Player -> Publishing Settings -> Capabilities -> Check on Microphone
 
 # Build Settings
-Platform - PC, Mac, Linux Standalone
+            Platform - PC, Mac, Linux Standalone
 
-Target Platform - Windows
+            Target Platform - Windows
 
-Compression Method - Default
+            Compression Method - Default
 
 # Player Settings - > Other settings
 Configuration
 
-Scripting Backend - Mono
+            Scripting Backend - Mono
 
-API compatibility Level - .NET Standard 2.0
+            API compatibility Level - .NET Standard 2.0
 
-Active Input Handling - Input Manager (Old)
+            Active Input Handling - Input Manager (Old)
 

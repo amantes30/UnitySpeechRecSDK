@@ -76,7 +76,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Shared\Scripts\SpawnInCircle.cs" />
-    <Compile Include="Assets\ScriptableObject\VoiceDict.cs" />
+    <Compile Include="Assets\Scripts\VoiceDict.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\VoiceMove.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />

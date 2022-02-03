@@ -13,6 +13,7 @@ public class VoiceMove : MonoBehaviour
     [SerializeField] private Canvas HelpMenu;
     [SerializeField] private Transform HumanModel;
     [SerializeField] Transform Environment;
+    [SerializeField] Transform ObjectInHand;
     public List<Transform> HoldableObjs; // list to get every object that player can hold in the scene
     private KeywordRecognizer playermovement_keywords; //Keyword to be recognized
     Vector3 speed; // for player movement
@@ -24,6 +25,18 @@ public class VoiceMove : MonoBehaviour
     void Start()
     {
 
+        foreach (Transform obj in Environment.GetComponentInChildren<Transform>())
+        {
+            if (obj.tag == "Pickable")
+            {
+                HoldableObjs.Add(obj);
+            }
+            else if (obj.tag == "Player")
+            {
+                HumanModel = obj;
+            }
+        }
+        AnimationController = HumanModel.GetComponent<Animator>();
         // add keywords to the dictionary
         actions.Add("walk", Walk);
         actions.Add("turn right", TurnRight);
@@ -33,6 +46,8 @@ public class VoiceMove : MonoBehaviour
         actions.Add("hello", Greet);
         actions.Add("do backflip", flip);
         actions.Add("jump", Jump);
+        actions.Add("hold ball", HoldBall);
+        actions.Add("throw ball",ThrowBall);
 
 
         playermovement_keywords = new KeywordRecognizer(actions.Keys.ToArray());
@@ -41,22 +56,39 @@ public class VoiceMove : MonoBehaviour
         playermovement_keywords.Start();
 
       
-        AnimationController = HumanModel.GetComponent<Animator>();
+        
 
 
 
         // Get's animation component attached on object
 
-        foreach (Transform obj in Environment.GetComponentInChildren<Transform>())
+    }
+    void HoldBall()
+    {
+        if (ObjectInHand.name == "ball") { return; }
+        else 
         {
-            if (obj.tag == "Pickable")
+            foreach (Transform i in HoldableObjs)
             {
-                HoldableObjs.Add(obj);
+                if (i.name == "ball")
+                {
+                    i.GetComponent<Rigidbody>().useGravity = false;
+                    ObjectInHand = i;
+                    ObjectInHand.SetParent(HumanModel);
+                    i.localPosition = new Vector3(0.18f, 0.95f, 0.26f);
+                    i.localRotation = Quaternion.identity;
+
+
+                }
             }
         }
-
     }
-
+    void ThrowBall()
+    {
+        ObjectInHand.GetComponent<Rigidbody>().useGravity = true;
+        ObjectInHand.GetComponent<Rigidbody>().AddForce(0, 0, 50);
+        ObjectInHand.SetParent(Environment);
+    }
     void Jump()
     {
         PlayAnim("Jumped");
@@ -113,6 +145,7 @@ public class VoiceMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         if (Input.GetKeyDown(KeyCode.C))
         {
 

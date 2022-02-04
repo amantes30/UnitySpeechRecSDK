@@ -35,3 +35,12 @@ Configuration
 # Common Error
 In some case the VoiceMove.cs script might be blank, this indicates the packages haven’t been loaded properly. The solution is go to the Project Window -> Right click -> select Reimport All. Unity will close and reopen.
 
+# Setup
+            1. Open/Create Scene
+            2. Add Voice Listener prefab to scene
+            3. Make sure
+                        1. Every interactable object is under one parent object
+                        2. Every pickable object has tag "Pickabe".
+                        3. Human object has tag "Player".
+            4. Drag parent object to the Environemnt Variable in Voice Listener objects Voice listener component.
+            5. finally Run your Project

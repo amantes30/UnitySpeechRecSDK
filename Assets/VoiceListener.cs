@@ -6,9 +6,9 @@ using System;
 using System.Windows;
 using System.Linq;
 
-public class VoiceMove : MonoBehaviour
+
+public class VoiceListener : MonoBehaviour
 {
-    
     [SerializeField] private Animator AnimationController;
     [SerializeField] private Canvas HelpMenu;
     [SerializeField] private Transform HumanModel;
@@ -18,7 +18,7 @@ public class VoiceMove : MonoBehaviour
     private KeywordRecognizer playermovement_keywords; //Keyword to be recognized
     Vector3 speed; // for player movement
                    //dictionary to save Keywords with functions
-    
+
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
 
@@ -28,8 +28,8 @@ public class VoiceMove : MonoBehaviour
         foreach (Transform obj in Environment.GetComponentInChildren<Transform>())
         {
             if (obj.tag == "Pickable")
-            {                
-                
+            {
+
                 HoldableObjs.Add(obj);
                 if (obj.name.Split('_')[0] == "ball")
                 {
@@ -173,6 +173,4 @@ public class VoiceMove : MonoBehaviour
 
     }
 
-
 }
-

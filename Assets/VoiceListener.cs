@@ -155,7 +155,7 @@ public class VoiceListener : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKey(KeyCode.C))
         {
 
             if (!HelpMenu.gameObject.activeInHierarchy)
@@ -165,7 +165,7 @@ public class VoiceListener : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKey(KeyCode.Escape) && HelpMenu.isActiveAndEnabled)
         {
             HelpMenu.gameObject.SetActive(false);
         }

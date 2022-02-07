@@ -5,7 +5,7 @@ using UnityEngine.Windows.Speech;
 using System;
 using System.Windows;
 using System.Linq;
-
+using UnityEngine.UI;
 
 public class VoiceListener : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class VoiceListener : MonoBehaviour
     private KeywordRecognizer playermovement_keywords; //Keyword to be recognized
     Vector3 speed; // for player movement
                    //dictionary to save Keywords with functions
+    [SerializeField] private Text MicCheckText;
 
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
@@ -57,7 +58,7 @@ public class VoiceListener : MonoBehaviour
         actions.Add("jump", Jump);
         actions.Add("hold ball", HoldBall);
         actions.Add("throw ball", ThrowBall);
-
+        actions.Add("deactivate voice control", VoiceOff);
 
         playermovement_keywords = new KeywordRecognizer(actions.Keys.ToArray());
 
@@ -70,6 +71,16 @@ public class VoiceListener : MonoBehaviour
 
 
         // Get's animation component attached on object
+
+    }
+    public void VoiceOff()
+    {
+        HumanModel.transform.GetComponent<KeyboardMove>().enabled = true;
+        string[] s = MicCheckText.text.Split(' ');
+        s[1] = "OFF";
+        MicCheckText.text = string.Join(" ", s);
+        transform.GetComponent<KeyboardMove>().enabled = false;
+        transform.GetComponent<VoiceListener>().enabled = false;
 
     }
     void HoldBall()

@@ -1,7 +1,7 @@
 # UnitySpeechRecSDK
 This is an SDK which can show a way for developers to use voice inputs as command for a software in unity
 
-Unity version : 2020.3.15
+Unity version : 2022.3.17f1
 
 Requirements for Speech recognition system SDK 
 -	Windows machine (Have not been tested on Mac or Linux OS)
